@@ -185,7 +185,7 @@ class _FormPageState extends State<FormPage> {
                           }
                           return null;
                         },
-                        autovalidateMode: AutovalidateMode.onUnfocus,
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
                         decoration: InputDecoration(
                           labelText: 'Task Name',
                           hintText: 'Enter task name',
