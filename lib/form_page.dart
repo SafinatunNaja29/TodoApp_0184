@@ -154,3 +154,19 @@ class _FormPageState extends State<FormPage> {
                   height: 1,
                 ),
               ),
+              Row(
+                children: [
+                  Expanded(
+                    child: SelectableText(
+                      selectedDate ?? 'Select a date',
+                      style: TextStyle(fontSize: 18),
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      chooseDateTime(context);
+                    },
+                    icon: Icon(Icons.calendar_today, color: Colors.blue),
+                  ),
+                ],
+              ),
