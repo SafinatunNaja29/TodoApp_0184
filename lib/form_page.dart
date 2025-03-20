@@ -14,3 +14,26 @@ class _FormPageState extends State<FormPage> {
   final todoKey = GlobalKey<FormState>();
   String? selectedDate;
   List<Map<String, dynamic>> daftarTodo = [];
+
+   void addTodo() {
+    if (selectedDate == null) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Please select a date')));
+      return;
+    }
+
+    if (todoController.text.isNotEmpty) {
+      setState(() {
+        daftarTodo.add({
+          'task': todoController.text,
+          'deadline': selectedDate,
+          'isDone': false,
+        });
+        todoController.clear();
+        selectedDate = null;
+      });
+    }
+  }
+
+  
