@@ -170,3 +170,69 @@ class _FormPageState extends State<FormPage> {
                   ),
                 ],
               ),
+
+              SizedBox(height: 5),
+              Form(
+                key: todoKey,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                        controller: todoController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter some text';
+                          }
+                          return null;
+                        },
+                        autovalidateMode: AutovalidateMode.onUnfocus,
+                        decoration: InputDecoration(
+                          labelText: 'Task Name',
+                          hintText: 'Enter task name',
+                          border: OutlineInputBorder(),
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(width: 12),
+                    TextButton(
+                      onPressed: () {
+                        if (todoKey.currentState!.validate()) {
+                          if (selectedDate == null) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('Please select a date'),
+                                behavior: SnackBarBehavior.floating,
+                                margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                                backgroundColor: Colors.blueGrey),
+                            );
+                          } else {
+                            addTodo();
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('Task added Succesfully'),
+                                behavior: SnackBarBehavior.floating,
+                                margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                              backgroundColor: Colors.teal)
+                            );
+                          }
+                        }
+                      },
+
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Theme.of(context).primaryColor,
+                        padding: EdgeInsets.only(left: 20, right: 20),
+                      ),
+                      child: Text(
+                        'Submit',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 20),
+              Text(
+                'List Tasks',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
