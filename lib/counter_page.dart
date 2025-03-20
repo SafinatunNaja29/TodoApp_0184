@@ -33,7 +33,6 @@ class _CounterPageState extends State<CounterPage> {
               ),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
-        spacing: 10,
         children: [
           FloatingActionButton(
             onPressed: () {
@@ -41,6 +40,7 @@ class _CounterPageState extends State<CounterPage> {
             },
             child: Icon(Icons.add),
           ),
+          SizedBox(width: 10),
           FloatingActionButton(
             onPressed: () {
               setState(() {
