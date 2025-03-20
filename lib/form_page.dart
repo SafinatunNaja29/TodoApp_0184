@@ -8,3 +8,9 @@ class FormPage extends StatefulWidget {
   @override
   State<FormPage> createState() => _FormPageState();
 }
+
+class _FormPageState extends State<FormPage> {
+  final TextEditingController todoController = TextEditingController();
+  final todoKey = GlobalKey<FormState>();
+  String? selectedDate;
+  List<Map<String, dynamic>> daftarTodo = [];
