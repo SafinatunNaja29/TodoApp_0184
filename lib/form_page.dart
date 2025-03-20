@@ -36,4 +36,29 @@ class _FormPageState extends State<FormPage> {
     }
   }
 
-  
+    Future<void> chooseDateTime(BuildContext context) async {
+    DateTime tempPickedDate = DateTime.now();
+
+    final pickedDateTime = await showCupertinoModalPopup<DateTime>(
+      context: context,
+      builder: (_) {
+        return Material(
+          child: Container(
+            height: MediaQuery.of(context).size.height * 0.4,
+            color: Colors.white,
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Set Task Date & Time',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+
+                      
