@@ -17,3 +17,45 @@ class _CounterPageState extends State<CounterPage> {
       counter += 1;
     });
   }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Counter Page')),
+      body:
+          (daftarCounter.isEmpty)
+              ? Center(child: Text('data kosong'))
+              : ListView.builder(
+                itemCount: daftarCounter.length,
+                itemBuilder: (context, index) {
+                  return ListTile(title: Text(daftarCounter[index]));
+                },
+              ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        spacing: 10,
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              tambahCounter();
+            },
+            child: Icon(Icons.add),
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                if (counter > 0 && daftarCounter.isNotEmpty) {
+                  counter--;
+                  daftarCounter.removeLast();
+                }
+                
+              });
+              
+            },
+            child: Icon(Icons.remove),
+          ),
+        ],
+      ),
+    );
+  }
+}
