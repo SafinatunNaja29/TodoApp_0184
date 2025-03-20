@@ -45,7 +45,7 @@ class _FormPageState extends State<FormPage> {
         return Material(
           child: Container(
             height: MediaQuery.of(context).size.height * 0.4,
-            color: Colors.white,
+            color: Colors.blue,
             child: Column(
               children: [
                 Padding(
